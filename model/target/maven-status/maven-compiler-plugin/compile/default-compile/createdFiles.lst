@@ -1,0 +1,6 @@
+com/airiea/task/model/orm/TaskRecord$TaskRecordBuilder.class
+com/airiea/task/model/dto/Task.class
+com/airiea/task/model/dto/Task$TaskBuilder.class
+com/airiea/task/model/orm/TaskRecord.class
+com/airiea/task/model/enums/StatusCode.class
+com/airiea/task/model/enums/ErrorCode.class
