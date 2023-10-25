@@ -19,7 +19,6 @@
         <module>dao</module>
         <module>model</module>
         <module>common</module>
-<!--        <module>controller</module>-->
     </modules>
 
     <properties>

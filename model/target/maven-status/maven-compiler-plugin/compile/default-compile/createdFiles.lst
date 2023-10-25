@@ -1,6 +1,12 @@
 com/airiea/task/model/orm/TaskRecord$TaskRecordBuilder.class
+com/airiea/task/model/operation/CompleteChatUsingAbilityNameRequest.class
 com/airiea/task/model/dto/Task.class
-com/airiea/task/model/dto/Task$TaskBuilder.class
-com/airiea/task/model/orm/TaskRecord.class
+com/airiea/task/model/operation/CompleteChatUsingKnowledgeIdsRequest$CompleteChatUsingKnowledgeIdsRequestBuilder.class
+com/airiea/task/model/operation/CompleteChatResponse.class
 com/airiea/task/model/enums/StatusCode.class
+com/airiea/task/model/operation/CompleteChatUsingKnowledgeIdsRequest.class
+com/airiea/task/model/dto/Task$TaskBuilder.class
+com/airiea/task/model/operation/CompleteChatResponse$CompleteChatResponseBuilder.class
+com/airiea/task/model/orm/TaskRecord.class
+com/airiea/task/model/operation/CompleteChatUsingAbilityNameRequest$CompleteChatUsingAbilityNameRequestBuilder.class
 com/airiea/task/model/enums/ErrorCode.class

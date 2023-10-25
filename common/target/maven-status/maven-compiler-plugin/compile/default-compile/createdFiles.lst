@@ -1,3 +1,4 @@
-com/airiea/task/lib/factory/TaskMapper.class
-com/airiea/task/lib/Hi.class
-com/airiea/task/lib/factory/TaskMapperImpl.class
+com/airiea/task/common/formatter/ChatCompletionFormatter.class
+com/airiea/task/common/factory/TaskFactory.class
+com/airiea/task/common/factory/OpenAiMessageFactory.class
+com/airiea/task/common/factory/TaskFactoryImpl.class
