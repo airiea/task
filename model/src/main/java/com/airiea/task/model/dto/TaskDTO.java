@@ -12,7 +12,7 @@ import java.util.Date;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Task {
+public class TaskDTO {
     @JsonProperty("task_id")
     String taskId;
 

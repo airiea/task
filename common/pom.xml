@@ -14,7 +14,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.airiea.task</groupId>
+            <groupId>com.airiea.taskDTO</groupId>
             <artifactId>model</artifactId>
             <version>1.0.0</version>
         </dependency>

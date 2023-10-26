@@ -1,13 +1,13 @@
 package com.airiea.task.common.factory;
 
-import com.airiea.task.model.dto.Task;
-import com.airiea.task.model.orm.TaskRecord;
+import com.airiea.task.model.dao.TaskDAO;
+import com.airiea.task.model.dto.TaskDTO;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
 @Mapper
 public interface TaskFactory {
     TaskFactory INSTANCE = Mappers.getMapper(TaskFactory.class);
-    Task taskRecordToTask(TaskRecord taskRecord);
-    TaskRecord taskToTaskRecord(Task task);
+    TaskDTO daoToDto(TaskDAO taskDAO);
+    TaskDAO dtoToDao(TaskDTO taskDTO);
 }

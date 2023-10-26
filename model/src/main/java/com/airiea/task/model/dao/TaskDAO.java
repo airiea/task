@@ -1,4 +1,4 @@
-package com.airiea.task.model.orm;
+package com.airiea.task.model.dao;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -15,7 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @DynamoDBTable(tableName = "task-records")
-public class TaskRecord {
+public class TaskDAO {
     @DynamoDBHashKey(attributeName = "task_id")
     @JsonProperty("task_id")
     String taskId;
