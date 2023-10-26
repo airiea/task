@@ -14,7 +14,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@DynamoDBTable(tableName = "task-records")
+@DynamoDBTable(tableName = "tasks")
 public class TaskDAO {
     @DynamoDBHashKey(attributeName = "task_id")
     @JsonProperty("task_id")
