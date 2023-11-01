@@ -1,5 +1,6 @@
 package com.airiea.task.repository;
 
+import com.airiea.task.model.dao.TaskDAO;
 import com.airiea.task.model.dto.TaskDTO;
 
 import java.util.List;
@@ -15,7 +16,7 @@ public interface TaskRepository {
      * @param taskId The unique identifier of the task.
      * @return The task associated with the given ID, or null if not found.
      */
-    TaskDTO getTaskById(String taskId);
+    TaskDTO getTaskDTOById(String taskId);
 
     /**
      * Retrieve a list of tasks associated with a specific entity.
@@ -23,5 +24,10 @@ public interface TaskRepository {
      * @param entityId The ID of the entity.
      * @return A list of tasks associated with the given entity ID.
      */
-    List<TaskDTO> getTasksByEntityId(String entityId);
+    List<TaskDTO> getTaskDTOsByEntityId(String entityId);
+
+    TaskDAO getTaskDAOById(String taskId);
+    TaskDAO createTaskDAO(TaskDAO taskDAO);
+    TaskDAO updateTaskDAO(TaskDAO taskDAO);
+    List<TaskDAO> getTaskDAOsByEntityId(String entityId);
 }

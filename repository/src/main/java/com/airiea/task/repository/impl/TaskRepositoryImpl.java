@@ -35,8 +35,9 @@ public class TaskRepositoryImpl implements TaskRepository {
      * @return The Task object.
      */
     @Override
-    public TaskDTO getTaskById(String taskId) {
-        final TaskDAO taskDAO = dynamoDBMapper.load(TaskDAO.class, taskId);
+    public TaskDTO getTaskDTOById(String taskId) {
+        final TaskDAO taskDAO = this.getTaskDAOById(taskId);
+
         return Optional.ofNullable(taskDAO)
                 .map(taskFactory::daoToDto)
                 .orElse(null);
@@ -49,20 +50,52 @@ public class TaskRepositoryImpl implements TaskRepository {
      * @return A list of Task objects.
      */
     @Override
-    public List<TaskDTO> getTasksByEntityId(String entityId) {
+    public List<TaskDTO> getTaskDTOsByEntityId(String entityId) {
+        final List<TaskDAO> taskDAOList = this.getTaskDAOsByEntityId(entityId);
+
+        return taskDAOList.stream()
+                .map(taskFactory::daoToDto)
+                .collect(Collectors.toList());
+    }
+
+
+
+    @Override
+    public TaskDAO getTaskDAOById(String taskId) {
+        return dynamoDBMapper.load(TaskDAO.class, taskId);
+    }
+
+    @Override
+    public TaskDAO createTaskDAO(TaskDAO taskDAO) {
+        if (!Objects.isNull(dynamoDBMapper.load(taskDAO))) {
+            throw new IllegalArgumentException("Failed to create taskDAO " + taskDAO + ", item already exists.");
+        }
+
+        dynamoDBMapper.save(taskDAO);
+        return taskDAO;
+    }
+
+    @Override
+    public TaskDAO updateTaskDAO(TaskDAO taskDAO) {
+        if (Objects.isNull(dynamoDBMapper.load(taskDAO))) {
+            throw new IllegalArgumentException("Failed to update taskDAO " + taskDAO + ", item not found.");
+        }
+
+        dynamoDBMapper.save(taskDAO);
+        return taskDAO;
+    }
+
+    @Override
+    public List<TaskDAO> getTaskDAOsByEntityId(String entityId) {
         TaskDAO gsiKeys = new TaskDAO();
-        gsiKeys.setEntityId(entityId);
+        gsiKeys.setAgentName(entityId);
 
         DynamoDBQueryExpression<TaskDAO> queryExpression = new DynamoDBQueryExpression<TaskDAO>()
                 .withIndexName(INDEX_NAME)
                 .withHashKeyValues(gsiKeys)
                 .withConsistentRead(false);
 
-        final List<TaskDAO> taskDAOList = dynamoDBMapper.query(TaskDAO.class, queryExpression);
-
-        return taskDAOList.stream()
-                .map(taskFactory::daoToDto)
-                .collect(Collectors.toList());
+        return dynamoDBMapper.query(TaskDAO.class, queryExpression);
     }
 
 }
